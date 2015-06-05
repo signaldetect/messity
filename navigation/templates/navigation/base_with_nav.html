@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block control %}
+  <div class="row">
+    <div class="col-xs-6 col-sm-3 col-sm-offset-3 col-md-2 col-md-offset-4">
+      {% include 'navigation/nav_item.html' with link=backward_link align='left' only %}
+    </div>
+    <div class="col-xs-6 col-sm-3 col-md-2">
+      {% include 'navigation/nav_item.html' with link=forward_link align='right' only %}
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends template_base %}
+
+{% block title %}Reader's hall{% endblock %}
+
+{% block content %}
+  <div class="row">
+    <div class="col-sm-7 col-md-6 col-md-offset-1">
+      <h3>Books by authors</h3>
+      <div class="list-group">
+        {% for author, books in books_by_authors.items %}
+          <div class="list-group-item">
+            <span class="badge">{{ books|length }}</span>
+            <h4 class="list-group-item-heading">{{ author }}</h4>
+            {% for book in books %}
+              <p class="list-group-item-text">{{ book }}</p>
+            {% endfor %}
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+    <div class="col-sm-5 col-md-4">
+      <h3>All authors</h3>
+      <div class="list-group">
+        {% for author in all_authors %}
+          <div class="list-group-item">{{ author }}</div>
+        {% endfor %}
+      </div>
+      <h3>All books</h3>
+      <div class="list-group">
+        {% for book in all_books %}
+          <div class="list-group-item">{{ book }}</div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+{% endblock %}

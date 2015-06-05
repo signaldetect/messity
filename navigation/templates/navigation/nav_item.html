@@ -1,0 +1,14 @@
+{% if link.button_type %}
+  <button type="{{ link.button_type }}" class="btn btn-primary pull-{{ align }}"
+          value="{{ link.text }}">
+    {% include 'navigation/nav_icon.html' with match=align case='left' only %}
+    {{ link.text }}
+    {% include 'navigation/nav_icon.html' with match=align case='right' only %}
+  </button>
+{% else %}
+  <p class="text-{{ align }}">
+    {% include 'navigation/nav_icon.html' with match=align case='left' only %}
+    <a href="{{ link.url }}">{{ link.text }}</a>
+    {% include 'navigation/nav_icon.html' with match=align case='right' only %}
+  </p>
+{% endif %}
