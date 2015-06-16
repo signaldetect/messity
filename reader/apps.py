@@ -13,9 +13,9 @@ class ReaderConfig(AppConfig):
     def ready(self):
         # Definers of signals
         from reader import signals
-        # Handlers of own signals
-        from reader import receivers
         # Handlers of signals from other apps
+        if 'storage' in settings.INSTALLED_APPS:
+            from reader.receivers import storage
         if 'navigation' in settings.INSTALLED_APPS:
             from reader.receivers import navigation
         if 'core' in settings.INSTALLED_APPS:

@@ -1,5 +1,5 @@
 """
-Models of the `reader` app
+Models of the `storage` app
 """
 
 from django.db import models

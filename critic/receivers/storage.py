@@ -1,10 +1,10 @@
 """
-Handling signals of the `reader` app
+Handling signals of the `storage` app
 """
 
 from django.dispatch import receiver
 
-from reader import signals
+from storage import signals
 from critic import forms
 
 

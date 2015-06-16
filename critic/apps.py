@@ -14,8 +14,8 @@ class CriticConfig(AppConfig):
         # Definers of signals
         from critic import signals
         # Handlers of signals from other apps
-        if 'reader' in settings.INSTALLED_APPS:
-            from critic.receivers import reader
+        if 'storage' in settings.INSTALLED_APPS:
+            from critic.receivers import storage
         if 'navigation' in settings.INSTALLED_APPS:
             from critic.receivers import navigation
         if 'core' in settings.INSTALLED_APPS:
