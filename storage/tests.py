@@ -14,7 +14,6 @@ class ActionsTest(TestCase):
     def setUpClass(cls):
         super().setUpClass()
         # Authors
-        models.Author.exists = True
         herman_melville = models.Author.objects.create(
             first_name='Herman',
             last_name='Melville',
@@ -31,7 +30,6 @@ class ActionsTest(TestCase):
             email='howard@lovecraft.writer'
         )
         # Books
-        models.Book.exists = True
         models.Book.objects.create(
             author=herman_melville,
             title='Moby-Dick; or, The Whale'
@@ -81,4 +79,6 @@ class ActionsTest(TestCase):
         }
         self.assertDictEqual(actions.books_by_authors(), books_by_authors)
 
-    # TODO: Add unit test for `actions._db_table_exists`
+    def test__db_table_exists(self):
+        self.assertTrue(actions._db_table_exists(models.Author))
+        self.assertTrue(actions._db_table_exists(models.Book))
